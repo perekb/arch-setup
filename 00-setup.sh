@@ -3,34 +3,29 @@
 #Install software
 sudo pacman -Syyu
 sudo pacman -S --needed pacman-contrib bash-completion zsh zsh-completions
-#sudo pacman -S x11-ssh-askpass
-#sudo pacman -S --needed usbutils pciutils
-sudo pacman -S --needed expect less vi neovim
+sudo pacman -S --needed expect less vi neovim git
 sudo pacman -S --needed ttf-dejavu ttf-liberation noto-fonts  ttf-fira-sans
-sudo pacman -S --needed alacritty
 
-mkdir ~/.config/alacritty
-cp ./config/alacritty.toml ~/.config/alacritty/
+git config --global init.defaultBranch main
+git config --global core.editor "code --wait"
+
+#sudo pacman -S --needed alacritty
+#mkdir ~/.config/alacritty
+#cp ./config/alacritty.toml ~/.config/alacritty/
+sudo pacman -S --needed kitty
+mkdir ~/.config/kitty
+cp ./config/kitty.conf ~/.config/kitty/
 
 #Yay install
 git clone https://aur.archlinux.org/yay.git
 cd ~/yay
 makepkg -si
 
-yay -S google-chrome pfetch
+yay -S --needed google-chrome brave-bin pfetch
 
 #Rate mirrors
-yay -S rate-mirrors
+yay -S --needed rate-mirrors
 sudo rate-mirrors --entry-country ES --disable-comments --save /etc/pacman.d/mirrorlist --allow-root arch --max-delay 500
-
-# rm -r ~/Descargas
-# rm -r ~/Documentos
-# rm -r ~/Escritorio
-# rm -r ~/Imágenes
-# rm -r ~/Música
-# rm -r ~/Plantillas
-# rm -r ~/Público
-# rm -r ~/Vídeos
 
 #oh-my-bash
 bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
@@ -38,36 +33,29 @@ bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/too
 
 #oh-my-zsh
 #sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-#examples:
 #ZSH_THEME="agnoster"
-#ZSH_THEME="refined"
 
 #Extensions Gnome 45
-sudo pacman -S gnome-browser-connector
+sudo pacman -S --needed gnome-browser-connector
 
 #pulse secure
-yay -S pulse-secure
-
-#visual studio code
-yay -S visual-studio-code-bin
-
-git config --global init.defaultBranch main
-git config --global core.editor "code --wait"
-
+yay -S --needed pulse-secure
 #for pulse secuire UI
 sudo pacman -S webkit2gtk
-#systemctl start pulsesecure
-#systemctl enable pulsesecure
+
+systemctl start pulsesecure
+systemctl enable pulsesecure
 #/opt/pulsesecure/bin/pulseUI
 
-#remmina
-sudo pacman -S remmina
+#visual studio code
+#yay -S --needed visual-studio-code-bin
+yay -S --needed antigravity-bin
 
-#teams
-yay -S teams
+#remmina
+#sudo pacman -S remmina
 
 #gdm
-yay -S gdm-settings
+yay -S --needed gdm-settings
 
 #monitors
 sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
@@ -82,7 +70,7 @@ sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
 #other
 #git clone https://github.com/AdisonCavani/distro-grub-themes.git
 
-sudo pacman -S dconf-editor
+#sudo pacman -S dconf-editor
 
 #dconf
 #org/gnome/desktop/wm/keybindings (switch-windows <super>tab / switch-applications <alt>tab)
