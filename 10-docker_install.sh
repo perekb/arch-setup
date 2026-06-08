@@ -1,12 +1,11 @@
 #!/bin/sh
 
 sudo pacman -Syyu
-sudo pacman -S docker docker-compose
+sudo pacman -S --needed --noconfirm docker docker-compose
 
-sudo systemctl start docker.service
-#sudo systemctl start docker.socket
+sudo systemctl enable --now docker.service
 
-sudo usermod -aG docker $USER
-#sudo gpasswd -a perek docker
+sudo usermod -aG docker "$USER"
 
-#yay -S docker-desktop
+newgrp docker -c "docker run --rm hello-world"
+
