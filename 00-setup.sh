@@ -2,8 +2,8 @@
 
 #Install software
 sudo pacman -Syyu
-sudo pacman -S --needed --noconfirm base-devel pacman-contrib bash-completion expect less neovim zed  
-sudo pacman -S --needed --noconfirm gnome-browser-connector rsync 
+sudo pacman -S --needed --noconfirm base-devel pacman-contrib bash-completion expect less neovim zed
+sudo pacman -S --needed --noconfirm gnome-browser-connector rsync
 sudo pacman -S --needed --noconfirm ttf-dejavu ttf-liberation noto-fonts ttf-fira-sans ttf-nerd-fonts-symbols
 
 # ZSH
@@ -86,3 +86,4 @@ bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/too
 
 # sudo snapper -c root create --description "Arch Setup"
 
+sudo pacman -S openconnect networkmanager-openconnect
